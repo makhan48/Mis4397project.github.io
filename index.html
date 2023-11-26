@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .welcome-page {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: black;
+          z-index: 1;
+        }
+
+        .corner {
+          width: 50px;
+          height: 50px;
+          filter: blur(2px);
+          position: absolute;
+          opacity: .1;
+        }
+
+        .corner:nth-of-type(1) {
+          top: 2rem;
+          left: 2rem;
+          border-top: 2px solid white;
+          border-left: 2px solid white;
+        }
+
+        .corner:nth-of-type(2) {
+          top: 2rem;
+          right: 2rem;
+          border-top: 2px solid white;
+          border-right: 2px solid white;
+          animation-delay: 0.5s;
+        }
+
+        .corner:nth-of-type(3) {
+          bottom: 2rem;
+          left: 2rem;
+          border-bottom: 2px solid white;
+          border-left: 2px solid white;
+          animation-delay: 1s;
+        }
+
+        .corner:nth-of-type(4) {
+          bottom: 2rem;
+          right: 2rem;
+          border-bottom: 2px solid white;
+          border-right: 2px solid white;
+          animation-delay: 1.5s;
+        }
+
+        .content {
+          user-select: none;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          font-size: 5vw;
+          font-family: 'Verdana', sans-serif;
+          font-weight: bold;
+          letter-spacing: 20px;
+          position: relative;
+        }
+
+        .content p {
+          position: relative;
+          width: 80%;
+          text-align: center;
+          opacity: 1;
+          text-shadow: 10px 0px 2px rgba(255, 255, 255, 0.5);
+          animation: popOut 1s 2s forwards ease-in-out;
+        }
+
+        @keyframes popOut {
+          from {
+            transform: scale(0.8);
+          }
+          to {
+            transform: scale(1);
+          }
+        }
+
+        .content span {
+          position: relative;
+          color: transparent;
+        }
+
+        .continue {
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          text-align: center;
+          border: 2px solid white;
+          color: white;
+          position: absolute;
+          bottom: 20%;
+          left: 50%;
+          transform: translate(-50%, 0);
+          font-size: 1rem;
+          padding: 1rem 2rem;
+          box-shadow: 0 0 15px white inset;
+          cursor: pointer;
+          background: linear-gradient(90deg, transparent 33%, white 34%, transparent 35%, transparent 65%, white 66%, transparent 67%);
+          background-size: 300%;
+          background-position: left;
+          transition: all 0.5s;
+        }
+
+        .continue:hover {
+          background-position: right;
+          color: green;
+          filter: blur(0);
+        }
+
+        .vert-line {
+          position: absolute;
+          width: 2px;
+          filter: blur(1px);
+        }
+
+        .right-vert-line {
+          background: linear-gradient(transparent, green);
+          top: 0;
+          bottom: 0;
+          right: -5%;
+        }
+
+        .left-vert-line {
+          background: linear-gradient(green, transparent);
+          top: 0;
+          bottom: 0;
+          right: 105%;
+        }
+
+        @keyframes move {
+          from {
+            right: 0%;
+          }
+          50% {
+            opacity: 0.3;
+          }
+          to {
+            right: 100%;
+            opacity: 0;
+          }
+        }
+
+        .container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 150px;
+          height: 150px;
+          transform: rotateX(45deg) rotate(45deg);
+          border-radius: 10px;
+          overflow: hidden;
+          opacity: 0;
+        }
+
+        .icons {
+          display: flex;
+          align-items: center;
+          transform: rotate(-45deg);
+          min-width: 220px;
+        }
+
+        .icon {
+          display: flex;
+          align-items: center;
+          flex: 1;
+          height: 210px;
+          padding: 1rem;
+          text-align: center;
+          font-size: 2rem;
+          cursor: pointer;
+          position: relative;
+          user-select: none;
+        }
+
+        .icon a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        .icon:before {
+          content: '';
+          position: absolute;
+          transition: left .4s, right .4s;
+          z-index: -1;
+        }
+
+        .icon.fb {
+          justify-content: flex-end;
+          transition: color .4s;
+        }
+
+        .icon.fb:before {
+          right: 0;
+          top: 0;
+          left: 100%;
+          bottom: 0;
+          background: #405CA1;
+          border-right: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .icon.fb:hover {
+          color: white;
+          .icon.fb:before {
+            left: 0;
+          }
+        }
+
+        .icon.git {
+          justify-content: flex-start;
+          transition: color .4s;
+        }
+
+        .icon.git:before {
+          right: 100%;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          background: #24292E;
+        }
+
+        .icon.git:hover {
+          color: white;
+          .icon.git:before {
+            right: 0;
+          }
+        }
+
+        @keyframes opacity {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes moveTop {
+          0% {
+            opacity: 1;
+          }
+          100% {
+            top: -100%;
+            bottom: 100%;
+            opacity: 0;
+          }
+        }
+
+        @keyframes textShadow {
+          from {
+            text-shadow: 10px 0px 2px rgba(255, 255, 255, 0.5);
+            filter: blur(0px);
+          }
+          to {
+            text-shadow: 5px 0px 2px rgba(255, 255, 255, 0.5);
+            filter: blur(1px);
+          }
+        }
+
+        .welcome-page .container {
+          animation:
+          .welcome-page .container {
+            animation: opacity 1s 12s 1 forwards;
+          }
+
+          @keyframes opacity {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+
+          @keyframes moveTop {
+            0% {
+              opacity: 1;
+            }
+            100% {
+              top: -100%;
+              bottom: 100%;
+              opacity: 0;
+            }
+          }
+
+          @keyframes textShadow {
+            from {
+              text-shadow: 10px 0px 2px rgba(255, 255, 255, 0.5);
+              filter: blur(0px);
+            }
+            to {
+              text-shadow: 5px 0px 2px rgba(255, 255, 255, 0.5);
+              filter: blur(1px);
+            }
+          }
+
+          .welcome-page .content p {
+            animation: popOut 1s 2s forwards ease-in-out;
+          }
+
+          @keyframes popOut {
+            from {
+              transform: scale(0.8);
+            }
+            to {
+              transform: scale(1);
+            }
+          }
+      </style>
+      <title>Your Page Title</title>
+  </head>
+  <body>
+      <div class="welcome-page">
+          <div class="corner"></div>
+          <div class="corner"></div>
+          <div class="corner"></div>
+          <div class="corner"></div>
+          <div class="content">
+              <p data-shadow="WELCOME TO AIRSPACE">
+                  <span>W</span><span>E</span><span>L</span><span>C</span><span>O</span><span>M</span><span>E</span>
+                  <span>T</span><span>O</span>
+                  <span>A</span><span>I</span><span>R</span><span>S</span><span>P</span><span>A</span><span>C</span><span>E</span>
+              </p>
+          </div>
+          <div class="right-vert-line"></div>
+          <div class="left-vert-line"></div>
+          <div class="continue">LET'S GET STARTED</div>
+	          <div class="continue">
+	              <a href="signup.html" style="text-decoration: none; color: inherit;">LET'S GET STARTED</a>
+	          </div>
+	      </div>
+      </div>
+      <div class="container">
+          <div class="icons">
+              <div class="icon fb"><a href="#2" target="_blank">FB</a></div>
+              <div class="icon git"><a href="#2" target="_blank">GIT</a></div>
+          </div>
+      </div>
+  </body>
+  </html>

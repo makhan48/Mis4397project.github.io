@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirSpace - Storage Rentals</title>
+    <style>
+        #map {
+            width: 50%;
+            height: 50vh;
+        }
+    </style>
+</head>
+<body>
+    <header>
+	    <link rel="stylesheet" type="text/css" href="AirSpace.css">
+		
+        <h1>Welcome to AirSpace</h1>
+        <p>Find affordable short-term storage solutions near you.</p>
+        <a class="cta-button" href="#">Get Started</a>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>How It Works</h2>
+            <p>Discover and book storage spaces in just a few simple steps:</p>
+            <ol>
+                <li>Search for available storage spaces in your desired location.</li>
+                <li>View details and photos of the storage spaces.</li>
+                <li>Request a booking and arrange pick-up and drop-off with the host.</li>
+                <li>Store your items securely and pay through our platform.</li>
+            </ol>
+        </section>
+
+        <section class="section">
+			<p>Hover us and enjoy the satisfying neumorphic animation designs!</p>
+			<div class="frame">
+              <button class="custom-btn btn-1"><span>Garage</span></button>
+              <button class="custom-btn btn-2">Attic/Loft</button>
+			  <button class="custom-btn btn-3"><span>Basement</span></button>
+			  <button class="custom-btn btn-4"><span>Closet</span></button>
+			  <button class="custom-btn btn-5"><span>Outdoor</span></button>
+			  <button class="custom-btn btn-6"><span>Warehouse</span></button>
+			  <button class="custom-btn btn-7"><span>Boat</span></button>
+			  <button class="custom-btn btn-8"><span>Wine Cellar</span></button>
+			  <button class="custom-btn btn-9">Locker</button>
+			  <button class="custom-btn btn-10">Document</button>
+			  <button class="custom-btn btn-11">Workspace<div class="dot"></div></button>
+			  <button class="custom-btn btn-12"><span>Click!</span><span>Custom</span></button>
+			</div>
+            <h1>Google Maps Testing</h1>
+            <div id="map"></div>
+            <script src="initMap.js"></script>
+            <script
+                async
+                defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAam-fF7m7UA1nfGahdkJegF5QVPuPPOag&libraries=places&callback=initMap"
+            ></script>
+            <h2>Featured Storage Spaces</h2>
+            <div class="featured-spaces">
+                <div class="featured-space">
+                    <h3>Cozy Garage in Downtown</h3>
+                    <p>Secure and spacious garage available for short-term storage.</p>
+                    <p><strong>Price:</strong> $30/month</p>
+                </div>
+                <div class="featured-space">
+                    <h3>Attic Storage in Suburbia</h3>
+                    <p>Attic space with easy access for your storage needs.</p>
+                    <p><strong>Price:</strong> $25/month</p>
+                </div>
+                <div class="featured-space">
+                    <h3>Basement Storage Downtown</h3>
+                    <p>Dry and secure basement space in the heart of the city.</p>
+                    <p><strong>Price:</strong> $35/month</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial">
+                <p>"I needed a place to store my belongings during my move, and AirSpace made it easy to find a convenient and affordable storage solution."</p>
+                <p><strong>- Sarah, Happy AirSpace User</strong></p>
+            </div>
+            <div class="testimonial">
+                <p>"As a host on AirSpace, I've been able to earn extra income by renting out my unused storage space. It's been a great experience!"</p>
+                <p><strong>- John, AirSpace Host</strong></p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
+
