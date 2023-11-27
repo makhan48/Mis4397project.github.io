@@ -11,7 +11,7 @@ function initMap() {
 
     // Icon of user location or if user does not allow their location than default location.
     var homeIcon = {
-        url: "icons\\home.png",
+        url: ".\icons\\home.png",
         scaledSize: new google.maps.Size(50, 50),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(20, 40),
