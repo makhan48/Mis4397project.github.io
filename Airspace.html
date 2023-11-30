@@ -3,24 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirSpace - Storage Rentals</title>
+    <title>AirSpace</title>
+</head>
+<body>
+
+
     <style>
         #map {
             width: 50%;
             height: 50vh;
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="AirSpace.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .featured-spaces {
+            width: 65%;
+        }
+
+        .reviews {
+            width: 30%;
+        }
+
+        .featured-space {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    <header>
-	    <link rel="stylesheet" type="text/css" href="AirSpace.css">
-		
-        <h1>Welcome to AirSpace</h1>
-        <p>Find affordable short-term storage solutions near you.</p>
-        <a class="cta-button" href="#">Get Started</a>
-    </header>
+<header>
+    <h1>Welcome to AirSpace!</h1>
+    <p>Find affordable short-term storage solutions near you.</p>
+		<a class="cta-button" href="signup.html">Become a Host!</a>
+        <!-- Display welcome message using the full name from session storage -->
+        <h1 id="welcomeMessage"></h1>
+</header>
+<script>
+        // Retrieve the full name from session storage
+        var userFullName = sessionStorage.getItem("userFullName");
 
-    <div class="container">
+        // Display the welcome message
+        if (userFullName) {
+            var welcomeMessage = document.getElementById("welcomeMessage");
+            welcomeMessage.textContent = "Welcome, " + userFullName + "!";
+        }
+    </script>
+<div class="container">
+    <div class="featured-spaces">
         <section class="section">
             <h2>How It Works</h2>
             <p>Discover and book storage spaces in just a few simple steps:</p>
@@ -33,22 +95,18 @@
         </section>
 
         <section class="section">
-			<p>Hover us and enjoy the satisfying neumorphic animation designs!</p>
-			<div class="frame">
-              <button class="custom-btn btn-1"><span>Garage</span></button>
+            <p>Check out all of our options below!</p>
+            <div class="frame">
+<button class="custom-btn btn-1" onclick="window.location.href='./garage.html'"><span>Garage</span></button>
               <button class="custom-btn btn-2">Attic/Loft</button>
 			  <button class="custom-btn btn-3"><span>Basement</span></button>
 			  <button class="custom-btn btn-4"><span>Closet</span></button>
 			  <button class="custom-btn btn-5"><span>Outdoor</span></button>
 			  <button class="custom-btn btn-6"><span>Warehouse</span></button>
-			  <button class="custom-btn btn-7"><span>Boat</span></button>
-			  <button class="custom-btn btn-8"><span>Wine Cellar</span></button>
-			  <button class="custom-btn btn-9">Locker</button>
 			  <button class="custom-btn btn-10">Document</button>
-			  <button class="custom-btn btn-11">Workspace<div class="dot"></div></button>
-			  <button class="custom-btn btn-12"><span>Click!</span><span>Custom</span></button>
-			</div>
-            <h1>Google Maps Testing</h1>
+			  <button class="custom-btn btn-12"><span>Click!</span><span>Custom</span></button>            
+		  </div>
+            <h1>Local Storage Rentals Near You</h1>
             <div id="map"></div>
             <script src="initMap.js"></script>
             <script
@@ -60,22 +118,26 @@
             <div class="featured-spaces">
                 <div class="featured-space">
                     <h3>Cozy Garage in Downtown</h3>
-                    <p>Secure and spacious garage available for short-term storage.</p>
-                    <p><strong>Price:</strong> $30/month</p>
+					                    <img src="https://media.istockphoto.com/id/1393188014/photo/modern-residential-garage.jpg?s=612x612&w=0&k=20&c=SNnLdjbVarhp8QaBJRfpEduMv_cZV6tY7IuYW8Enxqs=" alt="Attic Storage Image">
+                    <h4>Secure and spacious garage available for short-term storage.</h4>
+                    <h5><strong>Price:</strong> $30/month</h5>
                 </div>
                 <div class="featured-space">
                     <h3>Attic Storage in Suburbia</h3>
-                    <p>Attic space with easy access for your storage needs.</p>
-                    <p><strong>Price:</strong> $25/month</p>
+   <img src="https://st.hzcdn.com/simgs/pictures/garages/garage-storage-banner-garage-img~dbd1a2ef070282e0_14-0445-1-93ff641.jpg" alt="Cozy Garage Image">                    <h4>Attic space with easy access for your storage needs.</h4>
+                    <h5><strong>Price:</strong> $25/month</h5>
                 </div>
                 <div class="featured-space">
                     <h3>Basement Storage Downtown</h3>
-                    <p>Dry and secure basement space in the heart of the city.</p>
-                    <p><strong>Price:</strong> $35/month</p>
+                    <img src="https://www.garageliving.com/hs-fs/hubfs/Imported_Blog_Media/home-entryway-garage-3-1.jpg?width=1200&height=800&name=home-entryway-garage-3-1.jpg" alt="Basement Storage Image">
+                    <h4>Dry and secure basement space in the heart of the city.</h4>
+                    <h5><strong>Price:</strong> $35/month</h5>
                 </div>
             </div>
         </section>
+    </div>
 
+    <div class="reviews">
         <section class="section">
             <h2>What Our Users Say</h2>
             <div class="testimonial">
@@ -86,9 +148,19 @@
                 <p>"As a host on AirSpace, I've been able to earn extra income by renting out my unused storage space. It's been a great experience!"</p>
                 <p><strong>- John, AirSpace Host</strong></p>
             </div>
+			<div class="testimonial">
+			    <p>"I recently used AirSpace to store my seasonal items, and the experience exceeded my expectations. The platform is user-friendly, the host was reliable, and my belongings were in safe hands. I'll definitely use AirSpace again for my storage needs."</p>
+			    <p><strong>- Ryan, Satisfied Customer</strong></p>
+			</div>
+			<div class="testimonial">
+			    <p>"AirSpace provided me with a stress-free solution for short-term storage. The process of finding and booking a space was quick, and the host I chose was responsive and accommodating. I highly recommend AirSpace for its convenience and reliability."</p>
+			    <p><strong>- Emily, Happy Customer</strong></p>
+			</div>
+			
+			
         </section>
     </div>
+</div>
+
 </body>
 </html>
-
-

@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            background-color: gray; /* Set the background color of the entire page */
             margin: 0;
             padding: 0;
             display: flex;
@@ -69,29 +68,45 @@
             text-decoration: underline;
         }
     </style>
-	    <title>AirSpace - Sign Up</title>
-	</head>
-	<body>
-	    <div class="container">
-	        <form class="signup-form" action="registration.php" method="POST">
-	            <h1>Sign up for AirSpace</h1>
-	            <div class="form-group">
-	                <input type="text" name="fullname" placeholder="Full Name" required>
-	            </div>
-	            <div class="form-group">
-	                <input type="email" name="email" placeholder="Email" required>
-	            </div>
-	            <div class="form-group">
-	                <input type="password" name="password" placeholder="Password" required>
-	            </div>
-	            <div class="form-group">
-	                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-	            </div>
-	            <!-- Use a separate <a> tag for the link -->
-	            <button type="submit">Sign Up</button>
-	            <a href="Airspace.html">Go to AirSpace</a>
-	        </form>
-	    </div>
-	</body>
-	</html>
+    <title>AirSpace - Sign Up</title>
+</head>
+<body>
+    <div class="container">
+        <form class="signup-form" action="registration.php" method="POST" onsubmit="return goToSignupConfirm()">
+            <h1>Sign up for AirSpace</h1>
+            <div class="form-group">
+				<input type="text" name="fullname" id="fullname" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            </div>
+	<button type="submit">Sign Up</button>
+	<p><a href="Airspace.html">Back to AirSpace</a></p>
     
+        </form>
+    </div>
+
+<script>
+    function goToSignupConfirm() {
+        // Get the entered full name
+        var fullName = document.getElementById("fullname").value;
+
+        // Store the full name in session storage
+        sessionStorage.setItem("userFullName", fullName);
+
+        // Redirect to signupconfirm.html
+        window.location.href = "signupconfirm.html";
+
+        // Make sure to return false to prevent the form from submitting
+        return false;
+    }
+</script>
+
+</body>
+</html>

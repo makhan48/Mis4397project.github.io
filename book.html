@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        .reservation-form {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        /* Add a style for hiding the form after submission */
+        .hidden {
+            display: none;
+        }
+    </style>
+    <title>Reservation - AirSpace</title>
+</head>
+<body>
+    <div class="container">
+        <form id="reservation-form" class="reservation-form" onsubmit="return submitForm()" method="POST">
+            <h1>Book Your Reservation</h1>
+            <div class="form-group">
+                <input type="text" name="fullname" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="address" placeholder="Address" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+            </div>
+            <div class="form-group">
+                <label for="start-date">Start Date:</label>
+                <input type="date" name="start-date" required>
+            </div>
+            <div class="form-group">
+                <label for="end-date">End Date:</label>
+                <input type="date" name="end-date" required>
+            </div>
+            <div class="form-group">
+                <label for="payment-method">Payment Method:</label>
+                <select name="payment-method" required>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <!-- Add more payment options as needed -->
+                </select>
+            </div>
+            <button type="submit">Book It Now!</button>
+            <p><a href="Airspace.html">Back to AirSpace</a></p>
+        </form>
+    </div>
+
+    <!-- JavaScript to submit the form and redirect to receipt.html -->
+    <script>
+        function submitForm() {
+            // Get form data
+            var formData = new FormData(document.getElementById('reservation-form'));
+
+            // Build a query string from form data
+            var queryString = new URLSearchParams(formData).toString();
+
+            // Redirect to receipt.html with query string
+            window.location.href = 'receipt.html?' + queryString;
+
+            // Prevent the form from submitting via the default form submission
+            return false;
+        }
+    </script>
+</body>
+</html>
